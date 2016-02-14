@@ -1,0 +1,48 @@
+.header{
+	height: 100px;
+}
+.container{
+	margin: auto;
+	width: 50%;
+
+}
+
+.gallows{
+
+	margin: auto;
+	width: 60%;
+	height: 50%;
+	border: black solid 1px;
+}
+
+.word{
+	float: left;
+	margin: auto;
+	width: 75%;
+	height: 100px;
+	border: black solid 1px;
+	overflow: auto;
+}
+
+.word p{
+	text-align: center;
+	margin: auto;
+	margin: 0px;
+	font-size: 5ex;
+}
+.letter{
+	width: 20%;
+	height: 100px;
+	float: left;
+	border: black solid 1px;
+	margin: auto;
+}
+
+input{
+	width: 50%;
+}
+
+hr{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
