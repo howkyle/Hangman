@@ -1,6 +1,9 @@
 window.onload= function(){
 
 	var word;
+	var wordlist =["guild", "science", "technology", "jamaica", "college", "computer",
+					 "university", "west", "indies", "mathematics", "information", "actuarial science", "physics", 
+					 "biology", "chemistry", "biochemistry", "programming" ];
 	var placeholder;
 	var wordlength;
 	var chanceCount;
