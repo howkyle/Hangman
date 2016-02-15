@@ -38,8 +38,19 @@
 	margin: auto;
 }
 
-input{
+.letter input{
 	width: 50%;
+	height: 100%;
+	font-size: 5ex;
+	text-align: center;
+}
+
+.letter button {
+	/*float:left; */
+	width: 40%;
+	height:50%; 
+	/*margin: auto;*/
+	overflow: hidden;
 }
 
 hr{
