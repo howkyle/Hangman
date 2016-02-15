@@ -1,19 +1,38 @@
 window.onload= function(){
 
-	var word = "testwordtestworrd2";
-	var placeholder = "";
-	var wordlength = word.length;
+	var word;
+	var placeholder;
+	var wordlength;
+	var chanceCount;
 
 	document.getElementById("submitGuess").addEventListener("click", checkGuess);
 
-	for(i=0;i<wordlength;i++){
-		placeholder +="_"
+	function initialize(){
+		word = "tes twordtest worrd2";
+		placeholder = "";
+		wordlength = word.length;
+		chanceCount = 0;
+
+		for(i=0;i<wordlength;i++){
+			if (word[i] == " "){
+				placeholder+=" ";
+			}
+			else{
+				placeholder +="_";
+			}
+			
+		}
+
+		document.getElementById("wordspace").innerHTML=placeholder;
 	}
 
-	document.getElementById("wordspace").innerHTML=placeholder;
+	function updateHangman(){
+		//code to update the visual man hanging in the gallows using pictures
+	}
 
 	function checkGuess(){
 		var indices=[];
+		var found = false;
 		letter = document.getElementById("letterGuess").value;
 		for(i=0;i<wordlength;i++){
 			if(word[i]==letter){
@@ -22,13 +41,22 @@ window.onload= function(){
 				temp[i]=letter;
 				placeholder=temp.join("");
 				console.log(placeholder);
+				found = true;
+			}
+		}
+		if(found == false){
+			chanceCount++;
+			updateHangman();
+			if(chanceCount==10){
+				document.getElementById("screen").innerHTML ="GAME OVER";
+				document.getElementById("submitGuess").disabled = true;
 			}
 		}
 
 		document.getElementById("wordspace").innerHTML=placeholder;
-		console.log("done")
-
 	}
+
+	initialize();
 }
 
 
