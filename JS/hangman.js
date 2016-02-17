@@ -3,7 +3,8 @@ window.onload= function(){
 	var word;
 	var wordlist =["guild", "science", "technology", "jamaica", "college", "computer",
 					 "university", "west", "indies", "mathematics", "information", "actuarial science", "physics", 
-					 "biology", "chemistry", "biochemistry", "programming" ];
+					 "biology", "chemistry", "biochemistry", "programming", "hello world" , "python", "java", "induction",
+					  "recursion", "control structures"];
 	var placeholder;
 	var wordlength;
 	var chanceCount;
@@ -11,6 +12,7 @@ window.onload= function(){
 	var gallowImg = new Image();
 
 	document.getElementById("submitGuess").addEventListener("click", checkGuess);
+	document.getElementById("refresh").addEventListener("click", initialize);
 
 	function initialize(){
 
@@ -23,6 +25,10 @@ window.onload= function(){
 		placeholder = "";
 		wordlength = word.length;
 		chanceCount = 0;
+		document.getElementById("wrongGuesses").innerHTML="";
+		document.getElementById("submitGuess").disabled = false;
+		document.getElementById("letterGuess").disabled = false;
+
 
 		for(i=0;i<wordlength;i++){
 			if (word[i] == " "){
@@ -50,6 +56,7 @@ window.onload= function(){
 		gallowImg.src = "images/"+chanceCount+".jpg";
 		if(chanceCount==10){
 				document.getElementById("submitGuess").disabled = true;
+				document.getElementById("letterGuess").disabled = true;
 		}
 	}
 
@@ -67,11 +74,14 @@ window.onload= function(){
 				found = true;
 				if(placeholder.search("_") == -1){
 					document.getElementById("submitGuess").disabled = true;
+					document.getElementById("letterGuess").disabled = true;
+					gallowImg.src = "images/win.jpg";
 				}
 			}
 		}
 		if(found == false && letter){
 			chanceCount++;
+			document.getElementById("wrongGuesses").innerHTML+=letter;
 			updateHangman();
 		}
 		document.getElementById("letterGuess").value="";

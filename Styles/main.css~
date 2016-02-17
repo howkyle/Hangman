@@ -1,6 +1,6 @@
 @font-face {
     font-family: chocolate-covered-raindrops;
-    src: url('../Fonts/Chocolate Covered Raindrops.ttf');
+    src: url('../Fonts/chocolate covered raindrops.ttf');
 }
 
 body{
@@ -8,19 +8,16 @@ body{
 }
 
 .header{
-	height: 10%;
+	height: 100px;
 	font-family: chocolate-covered-raindrops;
 	font-size: 80px;
 	text-align: center;
 	color: white;
-	overflow: hidden;
-	padding-bottom: 20px;
 }
 
 .container{
 	margin: auto;
 	width: 60%;
-	height: 70%;
 	border: solid 2px black;
 	border-radius: 10px;
 	overflow: auto;
@@ -33,7 +30,7 @@ body{
 	background-color: white;
 	margin: auto;
 	width: 60%;
-	height: 65%;
+	height: 50%;
 	border: black solid 1px;
 	border-radius: 10px;
 }
@@ -73,27 +70,14 @@ body{
 	border: #0f5959 solid 1px;
 	border-radius: 10px;
 	background-color: #0f5959;
-	float: left;
 }
 
 .letter button {
-	float:left;
+	float:right;
 	width: 50%;
-	height:50%; 
-	margin: auto;
-	overflow: hidden;
-}
-#wrongGuesses{
-	margin: 10px;
-	border: 1px solid black;
-	height: 6%;
-	background-color: #BFD4D9;
-	font-size: 40px;
-	font-family: chocolate-covered-raindrops;
-	letter-spacing: 5px;
-	overflow: auto;
+	height:100%; 
 	/*margin: auto;*/
-
+	overflow: hidden;
 }
 
 hr{
