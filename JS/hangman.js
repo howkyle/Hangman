@@ -7,11 +7,19 @@ window.onload= function(){
 	var placeholder;
 	var wordlength;
 	var chanceCount;
+	var canvas = document.getElementById("screen");
+	var gallowImg = new Image();
 
 	document.getElementById("submitGuess").addEventListener("click", checkGuess);
 
 	function initialize(){
-		word = "tes twordtest worrd2";
+
+		gallowImg.src = "images/initial.jpg";
+		canvas.appendChild(gallowImg);
+
+		pick = Math.floor((Math.random() * wordlist.length) + 1);
+		word = wordlist[pick];
+		console.log(word);
 		placeholder = "";
 		wordlength = word.length;
 		chanceCount = 0;
@@ -26,11 +34,23 @@ window.onload= function(){
 			
 		}
 
+
 		document.getElementById("wordspace").innerHTML=placeholder;
+		document.getElementById("letterGuess").focus();
+		document.getElementById("letterGuess").onkeypress = function khandle(e){
+			if(e.keyCode == 13){
+				checkGuess();
+			}
+		}
 	}
 
 	function updateHangman(){
 		//code to update the visual man hanging in the gallows using pictures
+		
+		gallowImg.src = "images/"+chanceCount+".jpg";
+		if(chanceCount==10){
+				document.getElementById("submitGuess").disabled = true;
+		}
 	}
 
 	function checkGuess(){
@@ -45,16 +65,17 @@ window.onload= function(){
 				placeholder=temp.join("");
 				console.log(placeholder);
 				found = true;
+				if(placeholder.search("_") == -1){
+					document.getElementById("submitGuess").disabled = true;
+				}
 			}
 		}
-		if(found == false){
+		if(found == false && letter){
 			chanceCount++;
 			updateHangman();
-			if(chanceCount==10){
-				document.getElementById("screen").innerHTML ="GAME OVER";
-				document.getElementById("submitGuess").disabled = true;
-			}
 		}
+		document.getElementById("letterGuess").value="";
+		document.getElementById("letterGuess").focus();
 
 		document.getElementById("wordspace").innerHTML=placeholder;
 	}
